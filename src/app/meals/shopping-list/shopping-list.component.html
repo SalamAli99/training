@@ -1,0 +1,19 @@
+
+<div class="row">
+  <div class="col-xs-10">
+    <app-shopping-edit></app-shopping-edit>
+    <hr>
+    <p>the list</p>
+    <ul class="list-group">
+  <a
+    (click)="onEditItem(i)"
+    class="list-group-item"
+    style="cursor: pointer"
+    *ngFor="let ingradient of ingradients; let i=index"
+      
+  >
+    {{ingradient.name}} ({{ingradient.amount}})
+  </a>
+</ul>
+  </div>
+</div>

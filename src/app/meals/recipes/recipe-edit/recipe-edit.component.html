@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
+                    <button  class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" formControlName="name">
+                    </div>
+                </div>
+            </div>
+
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="imagePath">ImageUrl</label>
+                    <input type="text" id="imagePath" class="form-control"#imagePath formControlName="imagePath">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <img [src]="imagePath.value" class="img=responsive" width="400px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea formControlName="description" type="text" id="description" class="form-control" rows="6"></textarea>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" formArrayName="ingredeints">
+                <div 
+                *ngFor="let ingredeintsControl of xxx.controls; 
+                let i=index"
+                 class="row" 
+                 style="margin-top:10px ;"
+                 [formGroupName]="i">
+                    <div class="col-xs-8">
+                        <input type="text" class="form-control" formControlName="name">
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" formControlName="amount">
+
+                    </div>
+                    <div class="col-xs-2">
+                        <button type="button" (click)="onDeleteIngredeint(i)" class="btn btn-danger">X</button>
+                    </div>
+                </div>  
+                <hr>                  
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button  type="button" class="btn btn-success" (click)="onAddIngredeint()">Add Ingredeint</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
